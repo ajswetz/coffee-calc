@@ -26,7 +26,14 @@ def brew(with_, grams, ratio):
 
 
 @click.command()
+@click.option('--from', 'from_',
+        required=True,
+        prompt='Enter the ratio you want to convert FROM. Accepted input examples: "60"; "1:15"')
 def convert():
     click.echo("Executing convert command . . .")
+
+    # TO DO:
+    # 1) Add some input validation, probably utilizing regex
+    # 2) Use valid inputs to run conversion process using brewratio class and return result
 
 
