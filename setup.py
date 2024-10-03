@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='Coffee Calc',
     version='0.1.0',
-    py_modules=['coffeecalc'],
+    py_modules=['coffeecalc', 'brewratio'],
     install_requires=[
         'Click',
     ],
@@ -11,7 +11,7 @@ setup(
         'console_scripts': [
             'brew = coffeecalc:brew',
             'convert = coffeecalc:convert',
-            
+
         ],
     },
 )
