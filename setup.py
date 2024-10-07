@@ -11,6 +11,7 @@ setup(
         'console_scripts': [
             'brew = coffeecalc:brew',
             'convert = coffeecalc:convert',
+            'recipe = coffeecalc:recipe',
 
         ],
     },

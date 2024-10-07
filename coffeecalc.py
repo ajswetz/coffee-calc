@@ -55,7 +55,56 @@ def convert(from_):
         given_ratio = gramsPerLiterRatio(grams_coffee)
         click.echo(f"Your new ratio is: {given_ratio.convert_to_gram_per_grams()}")
 
+@click.command()
+@click.option('--brewer',
+            type=click.Choice(['v60', 'french-press', 'aeropress'], case_sensitive=False),
+            required=True,
+            prompt='Which brewer are you using?')
+@click.option('--ratio',
+            required=False,
+            type=float,
+            default=60.0)
+@click.option('--coffee',
+            required=True,
+            type=float,
+            prompt='How many grams of coffee are you using?')
+def recipe(brewer, ratio, coffee):
+    click.echo("Executing recipe command . . .")
+
+    water = round(coffee / ratio * 1000)
+
+    match brewer:
+
+        case 'v60':
+            click.echo(f'''
 
 
 
+            ''')
+
+        case 'french-press':
+            click.echo(f'''James Hoffmann French Press Technique:
+Source: https://www.youtube.com/watch?v=st571DYYTR8       
+
+Grind Size: Medium
+Recommended Ratio: 60-70 g/L
+Water Temp: Boiling (100°C / 212°F)
+            
+Steps:
+1. Put {coffee} grams of ground coffee in french press
+2. Pour in {water} grams of boiling water
+3. Cover gently with the lid, but don't press down the plunger
+4. Let sit for 4 minutes
+5. Then, remove the lid and stir the crust of coffee grounds
+6. Scoop off the foam and floating bits at the top
+7. Wait 5-8 more minutes while the grounds sink to the bottom
+8. Gently push the plunger down just to the top of the liquid
+9. Gently pour the coffee out of the brewer''')
+
+        case 'aeropress':
+            click.echo(f'''
+
+
+
+            ''')
 
