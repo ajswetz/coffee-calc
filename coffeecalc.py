@@ -76,11 +76,31 @@ def recipe(brewer, ratio, coffee):
     match brewer:
 
         case 'v60':
-            click.echo(f'''
+            click.echo(f'''James Hoffmann V60 Technique:
+Source: https://www.youtube.com/watch?v=AI4ynXzkSQo
+                       
+Grind Size: Medium Fine
+Recommended Ratio: 60 g/L
+Water Temp: 
+    Lighter roasts: Boiling (100°C / 212°F)
+    Darker roasts: 80-90°C / 176-194°F
 
-
-
-            ''')
+Steps:
+1. Rinse paper filter with water just off the boil
+2. Add ground coffee to the V60
+3. Create a well in the middle of the grounds to help saturation during the bloom
+4. Zero out the scale and start the timer
+5. Bloom: Add 2x-3x coffee weight in water ({round(coffee * 2)}-{round(coffee * 3)} grams)
+6. Swirl or stir the coffee slurry until evenly mixed
+7. Wait until 0:45 seconds on the timer
+8. At 0:45 seconds, pour water up to a total of {round(water * .6)} grams within the next 30 seconds
+9. At 1:15 seconds, pour water up to a total of {water} grams within the next 30 seconds
+10. Then, gently stir the top of the slurry with a spoon to knock off grounds from the side of the brewer
+11. Allow the V60 to drain a little
+12. Give the V60 a gentle swirl (helps achieve flat coffee bed for even extraction)
+13. Allow the water to finish draining through the coffee bed
+14. Aim to finish drawdown by approximately 3:30 (this can vary based on total volume of coffee brewed)
+15. Enjoy!''')
 
         case 'french-press':
             click.echo(f'''James Hoffmann French Press Technique:
@@ -99,12 +119,34 @@ Steps:
 6. Scoop off the foam and floating bits at the top
 7. Wait 5-8 more minutes while the grounds sink to the bottom
 8. Gently push the plunger down just to the top of the liquid
-9. Gently pour the coffee out of the brewer''')
+9. Gently pour the coffee out of the brewer
+10. Enjoy!''')
 
         case 'aeropress':
-            click.echo(f'''
+            if coffee > 18:
+                click.echo("WARNING: THIS RECIPE WILL NOT WORK WITH MORE THAN 18G OF COFFEE!")
+                click.echo("IF YOU WANT TO BREW A LARGER BATCH WITH YOUR AEROPRESS, USE A DIFFERENT RECIPE.")
+                click.echo("HERE'S ONE SUGGESTION: https://aeroprecipe.com/recipes/backpack-of-freedom")
 
 
+            click.echo(f'''James Hoffmann Aeropress Technique
+Source: https://www.youtube.com/watch?v=XGs5QVAU-00
+                       
+Grind Size: Finer end of medium
+Recommended Ratio: 55 g/L
+Water Temp: 
+    Light roasts: 99°C / 210°F
+    Medium roasts: 90-95°C / 194-203°F
+    Dark roasts: 85-90°C / 185-194°F
 
-            ''')
-
+Steps:
+1. Set brewer with filter in standard position on a server or cup.
+2. Don't rinse the paper filter or preheat the brewer.
+3. Add {coffee} grams of coffee to the Aeropress.
+3. Start a timer, add {water} grams of water, aiming to wet all the coffee.
+4. Immediately place the plunger on top of the brewer (about 1cm in) to stop the coffee from dripping.
+5. Wait 2 minutes.
+6. Holding the brewer and the plunger, gently swirl the brewer.
+7. Wait 30 seconds.
+8. Gently press all the way down. It will take about 30 seconds.
+9. Enjoy!''')
