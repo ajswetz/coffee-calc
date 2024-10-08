@@ -6,15 +6,18 @@ from brewratio import *
 @click.option('--with', 'with_',
             type=click.Choice(['coffee', 'water'], case_sensitive=False),
             required=True,
-            prompt='Start your calculation with a value for either coffee or water')
+            prompt='Start your calculation with a value for either coffee or water',
+            help="Whether coffee or water should serve as the starting point for your calculation.")
 @click.option('--grams',
             required=True,
             type=float,
-            prompt='Enter your starting amount of coffee OR water in grams')
+            prompt='Enter your starting amount of coffee OR water in grams',
+            help="Starting amount of coffee OR water in grams. For water, 1g = 1mL.")
 @click.option('--ratio',
             required=False,
             type=float,
-            default=60.0)
+            default=60.0,
+            help="Your desired ratio of coffee-to-water. If not specified, the default ratio of 60 g/L will be used.")
 def brew(with_, grams, ratio):
     click.echo("Executing brew command . . .")
     click.echo(f"Your brew ratio is: {ratio} g/L")
@@ -30,7 +33,8 @@ def brew(with_, grams, ratio):
 @click.command()
 @click.option('--from', 'from_',
         required=True,
-        prompt='Enter the ratio you want to convert FROM. Accepted input examples: "60"; "1:15"')
+        prompt='Enter the ratio you want to convert FROM. Accepted input examples: "60"; "1:15"',
+        help="The ratio you want to convert FROM. To convert from a ratio like '60 g/L', the valid input would just be '60'. To convert from a ratio like '1:15', the valid input would be '1:15'.")
 def convert(from_):
     click.echo("Executing convert command . . .")
 
@@ -59,15 +63,18 @@ def convert(from_):
 @click.option('--brewer',
             type=click.Choice(['v60', 'french-press', 'aeropress'], case_sensitive=False),
             required=True,
-            prompt='Which brewer are you using?')
+            prompt='Which brewer are you using?',
+            help="The coffee brewer you're using.")
 @click.option('--ratio',
             required=False,
             type=float,
-            default=60.0)
+            default=60.0,
+            help="Your desired ratio of coffee-to-water. If not specified, the default ratio of 60 g/L will be used.")
 @click.option('--coffee',
             required=True,
             type=float,
-            prompt='How many grams of coffee are you using?')
+            prompt='How many grams of coffee are you using?',
+            help="The amount of grams of coffee you're using.")
 def recipe(brewer, ratio, coffee):
     click.echo("Executing recipe command . . .")
 
