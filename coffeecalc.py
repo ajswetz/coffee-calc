@@ -124,12 +124,14 @@ Steps:
 
         case 'aeropress':
             if coffee > 18:
-                click.echo("WARNING: THIS RECIPE WILL NOT WORK WITH MORE THAN 18G OF COFFEE!")
-                click.echo("IF YOU WANT TO BREW A LARGER BATCH WITH YOUR AEROPRESS, USE A DIFFERENT RECIPE.")
-                click.echo("HERE'S ONE SUGGESTION: https://aeroprecipe.com/recipes/backpack-of-freedom")
+                click.secho("===============================================================================", fg="red")
+                click.secho("WARNING: THIS RECIPE WILL NOT WORK WITH MORE THAN 18G OF COFFEE!", fg="red")
+                click.secho("IF YOU WANT TO BREW A LARGER BATCH WITH YOUR AEROPRESS, USE A DIFFERENT RECIPE.", fg="red")
+                click.secho("HERE'S ONE SUGGESTION: https://aeroprecipe.com/recipes/backpack-of-freedom", fg="red")
+                click.secho("===============================================================================", fg="red")
+            else: 
 
-
-            click.echo(f'''James Hoffmann Aeropress Technique
+                click.echo(f'''James Hoffmann Aeropress Technique
 Source: https://www.youtube.com/watch?v=XGs5QVAU-00
                        
 Grind Size: Finer end of medium
